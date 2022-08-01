@@ -1,24 +1,76 @@
-const assert = require("assert")
 
-// Feel free to look things up online!
 
 const reverse = function(str) {
   // TODO - write a function which reverses the string
 }
 
-const factorial = function(num) {
+
+
+function factorial(num) {
   // TODO - write a function which returns the factorial of a positive integer
-  // For example, 5! = 5 * 4 * 3 * 2 * 1 = 120
+  // For example, 5! =5 * 4 * 3 * 2 * 1 = 120
+  let i = num;
+  let product = 1;
+  while ( i > 0){
+    product *= i;
+    i -=1
+  }
+  return product;
 }
+
+console.log("FACTORIAL: " + factorial(4))
 
 function announceDate() {
   // TODO - write a function which returns the current date in the following format:
   // "Today's date is January 7th, 2016. It is eleven thirty-seven in the morning."
-  let date = "honk";
+  let cal = new Date();
+  let year = cal.getFullYear();
+  let month = cal.getMonth();
+  let monthInText = 
+  [
+    "January",
+    "Feburary",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
+  let day = cal.getDate();
+  let hour = cal.getHours();
+  let minute = cal.getMinutes();
+  let seconds = cal.getSeconds();
+  let minute24 = minute;
+  if (minute24 < 10){
+    minute24 = "0" + minute
+  }
+  let ampm = ["AM","PM"]
+  let ampmStatus = ampm;
+  let hour24 = hour;
+  let hour12 = hour24;
+  let minute12 = minute24;
+  // if the 24 hour clock has less than 12 hours
+  if (hour24 < 12){
+    // convert AMPM Status to AM
+    ampmStatus = ampmStatus[0]
+  }
+  // if the 24 hour clock is greater than 12 hours 
+  if (hour24 > 12){
+    // subtract 12 hours to get to PM
+    hour12 = hour24 - 12
+    // convert AMPM Status to PM
+    ampmStatus = ampmStatus[1]
+  }
+  let date = "Today's date is "+ monthInText[month] + " " + day + "th, " + year + ". For 24 hour time, it is " + hour24 + ":" + minute24 + ". For 12 hour time, it is " + hour12 + ":" + minute12 + " " + ampmStatus;
   return date;
 }
 const dateOn = announceDate();
-console.log(dateOn);
+console.log("DATE: " + dateOn);
 
 const shiftRight = function(str, num) {
   // TODO - write a function which shifts a string `num` characters to the right
@@ -45,7 +97,3 @@ const unzip = function(arr) {
 
 // Write tests here:
 
-assert(1 < 2)
-assert(1 + 2 == 3)
-assert([2, 3][0] === 2)
-// assert(reverse("3df") === "fd3")
