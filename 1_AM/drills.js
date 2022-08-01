@@ -94,7 +94,7 @@ const zip = function(arr1, arr2) {
   let zipArray = [];
   // if array length isn't equal
   if (arr1.length != arr2.length) {
-    return -1
+    return "ZIP: " + -1
   // but if the array length is equal 
   }else{
     let i = 0;
@@ -103,7 +103,7 @@ const zip = function(arr1, arr2) {
       i += 1
     } 
 
-    return zipArray
+    return "ZIP: " + zipArray
   }
   
 }
