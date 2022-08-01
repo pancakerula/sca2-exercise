@@ -11,10 +11,12 @@ const factorial = function(num) {
   // For example, 5! = 5 * 4 * 3 * 2 * 1 = 120
 }
 
-const announceDate = function() {
+function announceDate() {
   // TODO - write a function which returns the current date in the following format:
   // "Today's date is January 7th, 2016. It is eleven thirty-seven in the morning."
+  console.log("testing")
 }
+console.log(announceDate())
 
 const shiftRight = function(str, num) {
   // TODO - write a function which shifts a string `num` characters to the right
