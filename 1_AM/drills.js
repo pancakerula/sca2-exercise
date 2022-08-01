@@ -89,8 +89,25 @@ const zip = function(arr1, arr2) {
   // TODO - write a function which combines two arrays into an array of 2-element arrays and returns -1
   // if the two arrays are of unequal length
   // Example: zip([1, 2, 3], [5, 3, 1]) === [[1, 5], [2, 3], [3, 1]]
-}
 
+  // make a new array to put the zip array
+  let zipArray = [];
+  // if array length isn't equal
+  if (arr1.length != arr2.length) {
+    return -1
+  // but if the array length is equal 
+  }else{
+    let i = 0;
+    while (i != arr1.length){
+      zipArray.push(arr1[i] + ", " + arr2[i])
+      i += 1
+    } 
+
+    return zipArray
+  }
+  
+}
+console.log(zip([1,2,3],[5,3,1]))
 const unzip = function(arr) {
   // TODO - Write a function which does the opposite of `zip()`
 }
