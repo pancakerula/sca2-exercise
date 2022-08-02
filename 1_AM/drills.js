@@ -86,17 +86,34 @@ function tokenize(str) {
   let i = 0;
   // set a scattered and organized into words array
   let scattered = str.split('');
+  let wordShaper = [];
   let neatWords = [];
+  // this thing is giving an error for each cause it's doing something i probably understand wrong
+  let spaces = scattered.forEach()
   // while counter isn't string length
-  while(i != str.length){
-    // if the char is not a space
+  while(i <= str.length){
+    // if the char is not a space 
     if (scattered[i] != " "){
-      neatWords.push(scattered[i])
-    }else{
-      neatWords.splice(" ")
+      // then put into word shapper to you know shape the word
+      wordShaper.push(scattered[i])
       
     }
-    i+= 1
+    // now if we found a space 
+    else{
+      // push the space into the wordShaper 
+      wordShaper.push(scattered[i]);
+      // we gotta remove the space
+      wordShaper.pop(scattered[i]);
+      // and then join the text together
+      wordShaper.push(scattered[i])
+      wordShaper = wordShaper.join('');
+      // and then push the word into neat words fancy hehe
+      neatWords.push(wordShaper);
+      wordShaper = [];
+      
+    }
+    i += 1;
+
   }
   return neatWords
 
