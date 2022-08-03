@@ -118,7 +118,7 @@ function tokenize(str) {
     while (wordResetCounter != scattered.length){
       // if the char is not a space 
   
-      if (scattered[wordResetCounter] != " "){
+      if (scattered[wordResetCounter] != " "|| words - i == 0){
         // then put into word shapper to you know shape the word
         console.log("SCATTERED I FOR LOOKING THROUGH STRING TO SEE IF NOT SPACE: " + scattered[wordResetCounter])
         wordShaper.push(scattered[wordResetCounter])
@@ -126,13 +126,7 @@ function tokenize(str) {
         
       }
       // now if we found a space 
-      else if (scattered[wordResetCounter] == " " ){
-        // push the space into the wordShaper 
-        wordShaper.push(scattered[wordResetCounter]);
-        // we gotta remove the space
-        wordShaper.pop(" ");
-        // and then join the text together
-
+      else if (scattered[wordResetCounter] == " "){
         wordShaper = wordShaper.join('');
         console.log("WORDSHAPER ONCE WORD IS COMPLETE: " + wordShaper)
         // and then push the word into neat words fancy hehe
@@ -141,6 +135,7 @@ function tokenize(str) {
         i += 1;
         console.log("I IS EQUAL TO: " + i)
       }
+      
       wordResetCounter += 1;
 
       
