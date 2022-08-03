@@ -88,37 +88,88 @@ function tokenize(str) {
   let scattered = str.split('');
   let wordShaper = [];
   let neatWords = [];
-  // this thing is giving an error for each cause it's doing something i probably understand wrong
-  let spaces = scattered.forEach()
+  // make a spaces to count how many spaces in the text
+  function spaceFunction(str){
+    let spacesCounter = 0;
+    // for every letter in the string
+    let i = 0;
+    let scattered = str
+    while (i != scattered.length){
+      // if there is a space
+      if (scattered[i] == " "){
+        spacesCounter += 1
+      }
+      
+      
+      i += 1
+    }
+    console.log("TESTING FOR SPACE FUNCTION TEXT: " + scattered)
+    console.log("TESTING FOR SPACE COUNTER: " + spacesCounter)
+    return spacesCounter
+  }
+
+  let words = spaceFunction(scattered) ;
+
   // while counter isn't string length
-  while(i <= str.length){
-    // if the char is not a space 
-    if (scattered[i] != " "){
-      // then put into word shapper to you know shape the word
-      wordShaper.push(scattered[i])
+  i = 0;
+  let wordResetCounter = 0;
+
+  while(i != words ){
+    while (wordResetCounter != scattered.length){
+      // if the char is not a space 
+  
+      if (scattered[wordResetCounter] != " "){
+        // then put into word shapper to you know shape the word
+        console.log("SCATTERED I FOR LOOKING THROUGH STRING TO SEE IF NOT SPACE: " + scattered[wordResetCounter])
+        wordShaper.push(scattered[wordResetCounter])
+        
+        
+      }
+      // now if we found a space 
+      else if (scattered[wordResetCounter] == " " ){
+        // push the space into the wordShaper 
+        wordShaper.push(scattered[wordResetCounter]);
+        // we gotta remove the space
+        wordShaper.pop(" ");
+        // and then join the text together
+
+        wordShaper = wordShaper.join('');
+        console.log("WORDSHAPER ONCE WORD IS COMPLETE: " + wordShaper)
+        // and then push the word into neat words fancy hehe
+        neatWords.push(wordShaper);
+        wordShaper = [];
+        i += 1;
+        console.log("I IS EQUAL TO: " + i)
+      }
+      wordResetCounter += 1;
+
       
-    }
-    // now if we found a space 
-    else{
-      // push the space into the wordShaper 
-      wordShaper.push(scattered[i]);
-      // we gotta remove the space
-      wordShaper.pop(scattered[i]);
-      // and then join the text together
-      wordShaper.push(scattered[i])
-      wordShaper = wordShaper.join('');
-      // and then push the word into neat words fancy hehe
-      neatWords.push(wordShaper);
-      wordShaper = [];
       
-    }
-    i += 1;
+      
+    }  
 
   }
+  if (words - i == 0){
+    console.log("YES THE STATMENT PASSES")
+    while (wordResetCounter != scattered.length){
+      // then put into word shapper to you know shape the word
+      console.log("SCATTERED I FOR LOOKING THROUGH STRING TO SEE IF NOT SPACE: " + scattered[wordResetCounter])
+      wordShaper.push(scattered[wordResetCounter])
+      wordResetCounter += 1;
+      
+      
+    }
+    wordShaper = wordShaper.join('');
+    console.log("WORDSHAPER ONCE WORD IS COMPLETE: " + wordShaper)
+    // and then push the word into neat words fancy hehe
+    neatWords.push(wordShaper);
+    wordShaper = [];
+  }
+  neatWords = neatWords.join(" ")
   return neatWords
 
 }
-console.log(tokenize("What do I do"))
+console.log("NEAT WORDS: " + tokenize("What do I do"))
 const uniqueOnes = function(ary) {
   // TODO - write a function which returns the inputted array without duplicate elements
 }
